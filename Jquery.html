@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 6 Assignment Baggio Lo - JQuery Request</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    <div class="title">
+    <h1>Github Users</h1>
+    <br><br>
+    <button id="button">Load GitHub Users</button>
+    </div>
+    <br><br>
+    <div id="users"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function(){
+            // On click this button will run the GET request for the data
+            $('#button').click(function(){
+                
+                $.ajax({
+                method: 'GET',
+                url: 'https://api.github.com/users',
+                dataType: 'json'
+                }).done(function(data){
+                    console.log(data);
+                    $.map(data, function(users, i){
+                        $('#users').append('<li>'+users.id+'</li>'+'<li>'+users.login+'</li>'+'<li>'+users.url+'</li>');
+                    })
+                });
+            })
+
+        });
+
+        
+    </script>
+</body>
+</html>

@@ -68,4 +68,9 @@ img:hover {
 li:hover {
   color: red;
 }
+
+img {
+  width: 70px;
+  height: 70px;
+}
 /*# sourceMappingURL=style.css.map */
